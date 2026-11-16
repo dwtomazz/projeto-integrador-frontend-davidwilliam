@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio Pessoal</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -70,6 +71,44 @@
             <p>
                 Aqui apresento vídeos e outras produções realizadas por mim.
             </p>
+
+            <figure>
+                <!--
+                    preload="none": o vídeo está abaixo da dobra da página e pode ser
+                    pesado. Com "none" o navegador não baixa nada até o visitante
+                    apertar play; só o poster (imagem leve) é carregado. Com
+                    "metadata" baixaria duração/dimensões, e com "auto" baixaria o
+                    vídeo inteiro, gastando dados sem necessidade.
+
+                    Ordem dos <source>: WebM (VP9) primeiro, por ser mais eficiente
+                    (menor arquivo para a mesma qualidade). MP4 (H.264) vem depois como
+                    alternativa, pois é aceito por praticamente todos os navegadores.
+                    O navegador usa o primeiro formato que consegue reproduzir.
+                -->
+                <video
+                    id="video-portfolio"
+                    controls
+                    preload="none"
+                    poster="assets/images/poster.jpg"
+                    width="640"
+                >
+                    <source src="assets/video/video-portfolio.webm" type="video/webm">
+                    <source src="assets/video/video-portfolio.mp4" type="video/mp4">
+                    <track
+                        kind="captions"
+                        src="assets/captions/legendas-pt.vtt"
+                        srclang="pt-BR"
+                        label="Português"
+                        default
+                    >
+                    Seu navegador não suporta vídeo HTML5.
+                    <a href="assets/video/video-portfolio.mp4">Baixe o vídeo em MP4</a>.
+                </video>
+                <figcaption>
+                    Vídeo de exemplo do portfólio.
+                    <small id="formato-video"></small>
+                </figcaption>
+            </figure>
 
             <img
                 src="assets/images/portfolio.png"
