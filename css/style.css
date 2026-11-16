@@ -400,3 +400,51 @@ section[id] {
         width: 100%;
     }
 }
+
+/* ------------------------------------------------------------------
+   Aula 11: resultado da análise (classes por faixa de ritmo)
+   ------------------------------------------------------------------ */
+.exercicio {
+    margin: var(--espaco) 0;
+}
+
+.resultado {
+    display: grid;
+    gap: var(--espaco);
+}
+
+/* O JavaScript decide QUANDO a classe vale (classList); o CSS decide COMO ela parece */
+.ritmo-leve { --cor-ritmo: #15803d; }
+.ritmo-moderado { --cor-ritmo: #1d4ed8; }
+.ritmo-intenso { --cor-ritmo: #b45309; }
+.ritmo-maratona { --cor-ritmo: #b91c1c; }
+
+.item-resultado {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-left: 0.5rem solid var(--cor-ritmo);
+    border-radius: var(--raio);
+    padding: var(--espaco);
+}
+
+.item-resultado h3 {
+    margin: 0 0 0.25rem;
+}
+
+.item-resultado p {
+    margin: 0 0 0.5rem;
+}
+
+.selo {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background-color: var(--cor-ritmo);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.resumo {
+    font-weight: 600;
+}
