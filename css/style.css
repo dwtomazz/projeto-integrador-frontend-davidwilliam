@@ -300,3 +300,103 @@ footer {
 .hero {
     text-align: left;
 }
+
+/* ------------------------------------------------------------------
+   Aula 8: navbar fixa (sticky), item ativo, dropdown e hambúrguer
+   ------------------------------------------------------------------ */
+
+/* sticky (e não fixed): a navbar continua ocupando seu espaço no fluxo da
+   página e só "gruda" no topo ao rolar, sem cobrir o início do conteúdo.
+   z-index no próprio cabeçalho: ver o comentário de contextos de
+   empilhamento no index.html. */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Rolagem suave e margem para o título da seção não ficar sob a navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 5rem;
+}
+
+/* Estado ativo: item que corresponde à seção atual */
+.navbar__menu a.ativo {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+.navbar__menu a.ativo:hover {
+    background-color: var(--cor-primaria-escura);
+    color: #ffffff;
+}
+
+/* Dropdown: o item pai precisa de position: relative para que o submenu
+   (position: absolute) se posicione em relação a ele. */
+.navbar__item--dropdown {
+    position: relative;
+}
+
+.navbar__submenu {
+    display: none;
+    position: absolute;
+    top: 100%;          /* encostado no item pai: sem "buraco" entre os dois, */
+    left: 0;            /* senão o menu fecharia antes do mouse chegar nele. */
+    min-width: 11rem;
+    margin: 0;
+    padding: 0.25rem;
+    list-style: none;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.navbar__item--dropdown:hover > .navbar__submenu,
+.navbar__item--dropdown:focus-within > .navbar__submenu {
+    display: block;
+}
+
+/* Botão hambúrguer: oculto em telas largas */
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.6rem;
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    cursor: pointer;
+}
+
+.navbar__toggle-barra {
+    display: block;
+    height: 0.2rem;
+    background-color: var(--cor-texto);
+    border-radius: 0.1rem;
+}
+
+.navbar__toggle:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+@media (max-width: 48rem) {
+    .navbar__toggle {
+        display: flex;
+    }
+
+    /* Sem funcionalidade de clique ainda: o menu continua visível,
+       quebrando em linhas, para a navegação não ficar inacessível. */
+    .navbar__menu {
+        width: 100%;
+    }
+}
