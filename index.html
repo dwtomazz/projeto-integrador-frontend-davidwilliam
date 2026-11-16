@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio Pessoal</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
@@ -20,9 +21,9 @@
                 <rect x="4" y="4" width="56" height="56" rx="14" fill="#1d4ed8"/>
                 <polygon points="26,20 26,44 46,32" fill="#ffffff"/>
             </svg>
-        <h1>Meu Portfólio Pessoal</h1>
+        <h1 id="titulo-principal">Meu Portfólio Pessoal</h1>
 
-        <p>
+        <p class="destaque">
             Um espaço para apresentar meus projetos, trabalhos e vídeos
             produzidos ao longo da minha trajetória acadêmica e profissional.
         </p>
@@ -37,7 +38,7 @@
 
     <main>
 
-        <section id="projetos">
+        <section id="projetos" class="secao">
             <h2>Meus Projetos</h2>
 
             <p>
@@ -74,7 +75,7 @@
             </table>
         </section>
 
-        <section id="producoes">
+        <section id="producoes" class="secao">
             <h2>Vídeos e Produções</h2>
 
             <p>
@@ -119,7 +120,7 @@
                 </figcaption>
             </figure>
 
-            <img
+            <img class="imagem-destaque"
                 src="assets/images/portfolio.png"
                 alt="Ilustração de três notas de dinheiro verdes empilhadas em leque, com o símbolo de dólar na nota da frente"
                 width="300"
@@ -137,7 +138,7 @@
             </p>
         </section>
 
-        <section id="numeros">
+        <section id="numeros" class="secao">
             <h2>Produções em Números</h2>
 
             <p>
@@ -151,7 +152,7 @@
             </canvas>
         </section>
 
-        <section id="contato">
+        <section id="contato" class="secao">
             <h2>Entre em Contato</h2>
 
             <p>
@@ -206,7 +207,7 @@
                         ></textarea>
                     </div>
 
-                    <button type="submit">Enviar mensagem</button>
+                    <button type="submit" class="botao">Enviar mensagem</button>
 
                 </fieldset>
 
