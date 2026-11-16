@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio Pessoal</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -34,7 +35,14 @@
                 durante meus estudos e experiências com desenvolvimento web.
             </p>
 
-            <table border="1">
+            <ul>
+                <li>Projetos de desenvolvimento web</li>
+                <li>Vídeos produzidos por mim</li>
+                <li>Projetos acadêmicos e pessoais</li>
+            </ul>
+
+            <table>
+                <caption>Projetos e suas categorias</caption>
                 <thead>
                     <tr>
                         <th>Projeto</th>
@@ -64,9 +72,9 @@
             </p>
 
             <img
-                src="assets/images/portfolio.jpg"
-                alt="Imagem representando meu portfólio pessoal"
-                width="500"
+                src="assets/images/portfolio.png"
+                alt="Ilustração de três notas de dinheiro verdes empilhadas em leque, com o símbolo de dólar na nota da frente"
+                width="300"
             >
 
             <p>
@@ -95,28 +103,13 @@
 
                     <div>
                         <label for="nome">Nome:</label>
-                        <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            required
-                            minlength="3"
-                        >
+                        <input type="text" id="nome" name="nome" required minlength="3">
                     </div>
-
-                    <br>
 
                     <div>
                         <label for="email">E-mail:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                        >
+                        <input type="email" id="email" name="email" required>
                     </div>
-
-                    <br>
 
                     <div>
                         <label for="telefone">Telefone:</label>
@@ -129,15 +122,9 @@
                         >
                     </div>
 
-                    <br>
-
                     <div>
                         <label for="assunto">Assunto:</label>
-                        <select
-                            id="assunto"
-                            name="assunto"
-                            required
-                        >
+                        <select id="assunto" name="assunto" required>
                             <option value="">Selecione um assunto</option>
                             <option value="projeto">Projeto</option>
                             <option value="video">Vídeo</option>
@@ -145,8 +132,6 @@
                             <option value="outro">Outro</option>
                         </select>
                     </div>
-
-                    <br>
 
                     <div>
                         <label for="mensagem">Mensagem:</label>
@@ -158,8 +143,6 @@
                             required
                         ></textarea>
                     </div>
-
-                    <br>
 
                     <button type="submit">Enviar mensagem</button>
 
