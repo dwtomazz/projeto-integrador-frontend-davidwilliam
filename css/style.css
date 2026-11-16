@@ -1,29 +1,151 @@
-/* Estilos básicos do portfólio */
+/* style.css - estilos do portfólio */
+
+/* Variáveis globais: um único lugar para trocar cores, espaços e bordas */
+:root {
+    --cor-primaria: #1d4ed8;
+    --cor-primaria-escura: #1e3a8a;
+    --cor-fundo: #f5f7fb;
+    --cor-superficie: #ffffff;
+    --cor-texto: #1f2937;
+    --cor-borda: #cbd5e1;
+    --espaco: 1rem;
+    --raio: 0.5rem;
+}
+
+/* font-size em rem (e não px): rem é relativo ao tamanho de fonte do navegador,
+   então respeita a preferência de acessibilidade de quem aumenta o texto.
+   Com px, essa escolha do visitante seria ignorada. */
+html {
+    font-size: 100%;
+}
+
 body {
     font-family: system-ui, sans-serif;
-    line-height: 1.5;
-    max-width: 800px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    max-width: 60rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: var(--espaco);
+}
+
+/* Agrupamento (vírgula): os três níveis de título compartilham fonte e cor,
+   evitando repetir a mesma declaração em três regras. */
+h1,
+h2,
+h3 {
+    color: var(--cor-primaria-escura);
+    line-height: 1.2;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+
+/* Seletor de ID: o título principal é único na página */
+#titulo-principal {
+    margin-top: 0;
+    border-bottom: 0.25rem solid var(--cor-primaria);
+    padding-bottom: 0.5rem;
+}
+
+/* Classes reutilizáveis */
+.secao {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: var(--espaco);
+    margin: var(--espaco) 0;
+}
+
+.destaque {
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-left: 0.25rem solid var(--cor-primaria);
+    padding-left: var(--espaco);
+}
+
+.botao {
+    /* Box model explícito: padding + border + margin */
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--cor-primaria);
+    border-radius: var(--raio);
+    margin-top: var(--espaco);
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+}
+
+/* Combinador filho direto (>): só os h2 que são filhos diretos de .secao.
+   Assim, títulos de componentes aninhados não recebem esta borda por engano. */
+.secao > h2 {
+    margin-top: 0;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Links: ordem LVHA (link, visited, hover, active) para que cada estado
+   possa sobrescrever o anterior corretamente. */
+a:link {
+    color: var(--cor-primaria);
+}
+
+a:visited {
+    color: #6d28d9;
+}
+
+a:hover {
+    color: var(--cor-primaria-escura);
+    text-decoration: underline;
+}
+
+a:active {
+    color: #dc2626;
 }
 
 nav a {
-    margin-right: 1rem;
+    margin-right: var(--espaco);
 }
 
+/* Tabela */
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 th,
 td {
-    border: 1px solid #333;
+    border: 1px solid var(--cor-borda);
     padding: 0.5rem 1rem;
     text-align: left;
 }
 
+th {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+caption {
+    caption-side: bottom;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+}
+
+/* Lista */
+ul {
+    list-style-type: square;
+}
+
+/* Formulário */
 form div {
-    margin-bottom: 1rem;
+    margin-bottom: var(--espaco);
 }
 
 label {
@@ -32,7 +154,49 @@ label {
     vertical-align: top;
 }
 
-img {
+input,
+select,
+textarea {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+/* Mídia */
+img,
+video,
+canvas {
     max-width: 100%;
     height: auto;
+}
+
+/* object-fit: cover preenche a caixa sem distorcer, mesmo que a imagem
+   original não tenha a mesma proporção (corta o excesso). */
+.imagem-destaque {
+    display: block;
+    width: 18rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: var(--raio);
+    margin: var(--espaco) 0;
+}
+
+figure {
+    margin: var(--espaco) 0;
+}
+
+figcaption {
+    font-size: 0.875rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.875rem;
+    padding: var(--espaco);
 }

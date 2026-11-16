@@ -1,0 +1,14 @@
+/* reset.css - regras globais mínimas */
+
+/* border-box: width/height passam a incluir padding e borda,
+   então nenhum elemento "estoura" a largura calculada. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
