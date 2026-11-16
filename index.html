@@ -12,31 +12,41 @@
 
 <body>
 
-    <header>
-        <!-- Observação (Aula 5): ao redimensionar a janela, o logotipo em SVG
-             permanece nítido, porque é desenhado com vetores (viewBox) e não
-             com pixels. A imagem PNG da seção Produções perde nitidez quando ampliada. -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" role="img">
+    <header class="cabecalho">
+        <nav class="navbar" aria-label="Navegação principal">
+            <!-- Observação (Aula 5): ao redimensionar a janela, o logotipo em SVG
+                 permanece nítido, porque é desenhado com vetores (viewBox) e não
+                 com pixels. A imagem PNG da seção Produções perde nitidez quando ampliada. -->
+            <a class="navbar__logo" href="#inicio">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" role="img">
                 <title>Logotipo do Portfólio Pessoal: botão de play dentro de um quadrado arredondado</title>
                 <rect x="4" y="4" width="56" height="56" rx="14" fill="#1d4ed8"/>
                 <polygon points="26,20 26,44 46,32" fill="#ffffff"/>
             </svg>
-        <h1 id="titulo-principal">Meu Portfólio Pessoal</h1>
+                <span>Meu Portfólio</span>
+            </a>
 
-        <p class="destaque">
-            Um espaço para apresentar meus projetos, trabalhos e vídeos
-            produzidos ao longo da minha trajetória acadêmica e profissional.
-        </p>
-
-        <nav>
-            <a href="#projetos">Projetos</a>
-            <a href="#producoes">Produções</a>
-            <a href="#numeros">Números</a>
-            <a href="#contato">Contato</a>
+            <ul class="navbar__menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#producoes">Produções</a></li>
+                <li><a href="#numeros">Números</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
+
+        <section id="inicio" class="secao hero">
+            <h1 id="titulo-principal">Meu Portfólio Pessoal</h1>
+
+            <p class="destaque">
+                Um espaço para apresentar meus projetos, trabalhos e vídeos
+                produzidos ao longo da minha trajetória acadêmica e profissional.
+            </p>
+        </section>
 
         <section id="projetos" class="secao">
             <h2>Meus Projetos</h2>
@@ -150,6 +160,39 @@
                 Gráfico de barras com a quantidade de produções por categoria:
                 Vídeos: 5, Projetos web: 3, Acadêmicos: 4, Criativos: 2.
             </canvas>
+        </section>
+
+        <section id="galeria" class="secao">
+            <h2>Galeria de Produções</h2>
+
+            <!-- Grade responsiva: auto-fit + minmax cria quantas colunas couberem
+                 (mínimo 220px cada), sem nenhuma media query. -->
+            <div class="galeria">
+                <article class="card">
+                    <h3>Vídeos autorais</h3>
+                    <p>Curtas, vlogs e demonstrações produzidos por mim.</p>
+                </article>
+                <article class="card">
+                    <h3>Projetos web</h3>
+                    <p>Sites e páginas criados durante o curso.</p>
+                </article>
+                <article class="card">
+                    <h3>Projetos acadêmicos</h3>
+                    <p>Trabalhos desenvolvidos nas disciplinas.</p>
+                </article>
+                <article class="card">
+                    <h3>Experiências criativas</h3>
+                    <p>Testes visuais, edições e ideias novas.</p>
+                </article>
+                <article class="card">
+                    <h3>Parcerias</h3>
+                    <p>Colaborações com outras pessoas e grupos.</p>
+                </article>
+                <article class="card">
+                    <h3>Em breve</h3>
+                    <p>Novas produções que ainda vão entrar no portfólio.</p>
+                </article>
+            </div>
         </section>
 
         <section id="contato" class="secao">

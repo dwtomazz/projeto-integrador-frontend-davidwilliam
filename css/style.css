@@ -200,3 +200,103 @@ footer {
     font-size: 0.875rem;
     padding: var(--espaco);
 }
+
+/* ------------------------------------------------------------------
+   Aula 7: barra de navegação (Flexbox) e galeria (Grid)
+   ------------------------------------------------------------------ */
+
+/* Navbar: flex alinha logo e menu na mesma linha; space-between empurra
+   o menu para a direita; flex-wrap evita estouro em telas estreitas. */
+.cabecalho {
+    background-color: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espaco);
+    padding: 0.5rem var(--espaco);
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar__menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--raio);
+    text-decoration: none;
+    margin-right: 0;
+}
+
+/* Estados interativos dos links da navbar */
+.navbar__menu a:hover {
+    background-color: var(--cor-fundo);
+    text-decoration: none;
+}
+
+.navbar__menu a:focus-visible,
+.navbar__logo:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* Grade responsiva: sem media query. Cada coluna tem no mínimo 220px e
+   o espaço que sobra é dividido igualmente (1fr). */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--espaco);
+}
+
+.card {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: var(--espaco);
+    /* transform em vez de width/height no hover: transform é resolvido pela
+       GPU e não força o navegador a recalcular o layout (reflow) da página. */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+/* Pseudo-classes estruturais, usadas de propósito:
+   :first-child destaca o primeiro item (principal produção);
+   :nth-child(even) alterna o fundo para facilitar a leitura. */
+.card:first-child {
+    border-color: var(--cor-primaria);
+    border-width: 2px;
+}
+
+.card:nth-child(even) {
+    background-color: var(--cor-superficie);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.hero {
+    text-align: left;
+}
