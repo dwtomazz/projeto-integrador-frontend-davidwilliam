@@ -12,6 +12,20 @@
 
 <body>
 
+    <!--
+        Contextos de empilhamento (Aula 8)
+        Conflito possível: o dropdown fica DENTRO do cabeçalho. Como o cabeçalho
+        tem position: sticky, ele cria um contexto de empilhamento próprio, e o
+        dropdown (z-index: 10) só compete com outros elementos DENTRO dele.
+        Quem decide se o menu aparece na frente ou atrás dos cards da galeria é o
+        z-index do próprio cabeçalho. Os cards criam outro contexto de
+        empilhamento ao passar o mouse (transform), e vêm depois no HTML.
+        Sem z-index no cabeçalho (auto), um card em hover pintava por cima do dropdown.
+        Solução aplicada: z-index: 100 no .cabecalho (contexto raiz), em vez de
+        aumentar o z-index do dropdown, que não teria efeito fora do cabeçalho.
+        Para reproduzir: no DevTools, desmarque z-index em .cabecalho e passe o
+        mouse sobre um card da galeria com o dropdown aberto.
+    -->
     <header class="cabecalho">
         <nav class="navbar" aria-label="Navegação principal">
             <!-- Observação (Aula 5): ao redimensionar a janela, o logotipo em SVG
@@ -26,12 +40,31 @@
                 <span>Meu Portfólio</span>
             </a>
 
-            <ul class="navbar__menu">
-                <li><a href="#inicio">Início</a></li>
+            <!-- Botão hambúrguer: só a estrutura (sem clique, conforme a Aula 8).
+                 Aparece apenas em telas estreitas. -->
+            <button
+                class="navbar__toggle"
+                type="button"
+                aria-label="Abrir menu de navegação"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+                <span class="navbar__toggle-barra"></span>
+                <span class="navbar__toggle-barra"></span>
+                <span class="navbar__toggle-barra"></span>
+            </button>
+
+            <ul class="navbar__menu" id="menu-principal">
+                <li><a class="ativo" href="#inicio">Início</a></li>
                 <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#producoes">Produções</a></li>
-                <li><a href="#numeros">Números</a></li>
-                <li><a href="#galeria">Galeria</a></li>
+                <li class="navbar__item--dropdown">
+                    <a href="#producoes">Produções</a>
+                    <ul class="navbar__submenu">
+                        <li><a href="#producoes">Vídeos</a></li>
+                        <li><a href="#numeros">Números</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>

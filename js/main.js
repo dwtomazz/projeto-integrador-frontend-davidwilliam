@@ -89,3 +89,34 @@
 
     requestAnimationFrame(animar);
 })();
+
+// ---------------------------------------------------------------
+// Aula 8: marcar como .ativo o item de menu da seção visível
+// ---------------------------------------------------------------
+(function () {
+    const links = document.querySelectorAll(".navbar__menu a");
+    const secoes = document.querySelectorAll("main section[id]");
+    if (!links.length || !secoes.length || !("IntersectionObserver" in window)) return;
+
+    function marcar(id) {
+        links.forEach((l) => l.classList.remove("ativo"));
+        const alvo = document.querySelector('.navbar__menu a[href="#' + id + '"]');
+        if (!alvo) return;
+        alvo.classList.add("ativo");
+        // Se o link está dentro de um dropdown, destaca também o item pai
+        const pai = alvo.closest(".navbar__item--dropdown");
+        if (pai) pai.querySelector(":scope > a").classList.add("ativo");
+    }
+
+    // Considera "atual" a seção que cruza a faixa central da tela
+    const observador = new IntersectionObserver(
+        (entradas) => {
+            entradas.forEach((e) => {
+                if (e.isIntersecting) marcar(e.target.id);
+            });
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    secoes.forEach((s) => observador.observe(s));
+})();
