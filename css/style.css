@@ -448,3 +448,99 @@ section[id] {
 .resumo {
     font-weight: 600;
 }
+
+/* ------------------------------------------------------------------
+   Aula 12: lista interativa, painel e foco visível
+   ------------------------------------------------------------------ */
+[hidden] {
+    display: none !important;
+}
+
+/* Foco sempre visível para quem navega pelo teclado */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+.painel-controles {
+    display: grid;
+    gap: var(--espaco);
+    margin: var(--espaco) 0;
+}
+
+.painel-novo form {
+    margin-top: var(--espaco);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco);
+    align-items: end;
+}
+
+.filtros div {
+    margin-bottom: 0;
+}
+
+.lista-producoes {
+    list-style: none;
+    margin: var(--espaco) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.item-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espaco);
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-left: 0.5rem solid var(--cor-ritmo);
+    border-radius: var(--raio);
+    padding: 0.75rem var(--espaco);
+}
+
+.item-lista__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+}
+
+.item-lista__acoes {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lista-vazia {
+    padding: var(--espaco);
+    border: 1px dashed var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+.botao-secundario {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+    border: 2px solid var(--cor-primaria);
+    border-radius: var(--raio);
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria-escura);
+    cursor: pointer;
+}
+
+.botao-secundario:hover {
+    background-color: var(--cor-fundo);
+}
+
+/* Estado do botão alternável: o visual acompanha o aria-pressed */
+.botao-secundario[aria-pressed="true"] {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
