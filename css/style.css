@@ -1,0 +1,38 @@
+/* Estilos básicos do portfólio */
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+nav a {
+    margin-right: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: inline-block;
+    min-width: 6rem;
+    vertical-align: top;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
